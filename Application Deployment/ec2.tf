@@ -12,7 +12,7 @@ resource "aws_instance" "server" {
     host        = self.public_ip
    }
 
-provisioner "remote-exec" {
+   provisioner "remote-exec" {
     inline = [
       "mkdir -p /home/ubuntu/templates"
      ]
