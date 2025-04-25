@@ -13,7 +13,7 @@ resource "aws_instance" "server" {
    }
 
    provisioner "file" {
-    source      = "../Flask Application/app.py" 
+    source      = "/home/ec2-user/Flask Application/app.py" 
     destination = "/home/ubuntu/app.py"  
    }
 
