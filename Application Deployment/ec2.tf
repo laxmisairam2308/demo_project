@@ -35,7 +35,12 @@ resource "aws_instance" "server" {
       "sudo apt-get install -y python3-pip",  # Example package installation
       "cd /home/ubuntu",
       "sudo pip3 install flask",
-      "sudo python3 app.py",
+      "nohup sudo python3 app.py > flask.log 2>&1 &",
+    ]
+   }
+   provisioner "remote-exec" {
+    inline = [
+      "nohup sudo python3 app.py > flask.log 2>&1 &",
     ]
    }
 }
