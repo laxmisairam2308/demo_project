@@ -12,9 +12,20 @@ resource "aws_instance" "server" {
     host        = self.public_ip
    }
 
+provisioner "remote-exec" {
+    inline = [
+      "mkdir -p /home/ubuntu/templates"
+     ]
+   }
+
    provisioner "file" {
     source      = "/home/ec2-user/Flask Application/app.py" 
     destination = "/home/ubuntu/app.py"  
+   }
+
+   provisioner "file" {
+    source      = "/home/ec2-user/Flask Application/templates/index.html" 
+    destination = "/home/ubuntu/templates/index.html"
    }
 
    provisioner "remote-exec" {
