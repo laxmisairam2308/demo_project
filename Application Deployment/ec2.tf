@@ -53,6 +53,10 @@ resource "aws_instance" "server" {
       "sudo systemctl daemon-reload",
       "sudo systemctl enable flask",
       "sudo systemctl start flask",
+      "sleep 30",
+      "nohup sudo python3 app.py > flask.log 2>&1 &",
+      "sleep 100",
+      "echo 'started service sucuessfully'",
     ]
   }
 }
