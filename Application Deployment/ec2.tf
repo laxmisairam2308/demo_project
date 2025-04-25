@@ -8,7 +8,7 @@ resource "aws_instance" "server" {
   connection {
     type        = "ssh"
     user        = "ubuntu"  
-    private_key = file("/home/ec2-user/.ssh/") 
+    private_key = file("/home/ec2-user/.ssh/id_rsa.pub") 
     host        = self.public_ip
    }
 
